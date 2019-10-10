@@ -5,10 +5,22 @@
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="<?php echo base_url('assets/img/avatar5.png'); ?>" class="img-circle" alt="User Image" />
+                <?php if ($this->session->userdata('status') == "Pengurus"){ ?>
+                    <img src="<?php echo base_url('assets/img/avatar5.png'); ?>" class="img-circle" alt="User Image" />
+                <?php }else{ ?>
+                    <img src="<?php echo base_url('assets/img/avatar04.png'); ?>" class="img-circle" alt="User Image" />
+                <?php } ?>
             </div>
             <div class="pull-left info">
-                <p><?php echo $this->session->userdata('username') ?></p>
+                <p>
+                <?php 
+                if ($this->session->userdata('status') == "Pengurus"){ 
+                    echo $this->session->userdata('nama_penghuni');
+                }else{
+                    echo "Penghuni umum";
+                }
+                ?>
+                </p>
 
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
@@ -26,46 +38,42 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
             <li class="active">
-                <a href="<?php echo base_url('ProductController'); ?>">
-                    <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                <a href="<?php echo base_url('HomeController'); ?>">
+                    <i class="fa fa-home"></i> <span>Home</span>
                 </a>
             </li>
             <li>
-                <a href="<?php echo base_url('ContactController'); ?>">
-                    <i class="fa fa-phone"></i> <span>Contacts</span>
-                </a>
-            </li>
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-dropbox"></i> <span>Product</span>
-                    <i class="fa fa-angle-left pull-right"></i>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="<?php echo base_url('ProductController'); ?>">
-                        <i class="fa fa-angle-double-right"></i>List product
-                        </a>
-                    </li>
-                    <li><a href="<?php echo base_url('ProductCategoryController'); ?>">
-                        <i class="fa fa-angle-double-right"></i>Product category
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="<?php echo base_url('BomController'); ?>">
-                    <i class="fa fa-laptop"></i> <span>Bills of Materials</span>
+                <a href="<?php echo base_url('PenghuniController'); ?>">
+                    <i class="fa fa-user"></i> <span>Daftar penghuni</span>
                 </a>
             </li>
             <li>
-                <a href="<?php echo base_url('MoController'); ?>">
-                    <i class="fa fa-refresh"></i> <span>Manufacturing Orders</span>
+                <a href="<?php echo base_url('KamarController'); ?>">
+                    <i class="fa fa-hdd-o"></i> <span>Daftar kamar</span>
                 </a>
             </li>
+            <li>
+                <a href="<?php echo base_url('PembayaranController'); ?>">
+                    <i class="fa fa-money"></i> <span>Pembayaran kos</span>
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo base_url('IuranController'); ?>">
+                    <i class="fa fa-dropbox"></i> <span>Iuran kos</span>
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo base_url('PiketController'); ?>">
+                    <i class="fa fa-exchange"></i> <span>Jadwal piket</span>
+                </a>
+            </li>
+            <?php if ($this->session->userdata('status') == "Pengurus"){ ?>
             <li>
                 <a href="<?php echo base_url('SettingController'); ?>">
                     <i class="fa fa-wrench"></i> <span>Settings</span>
                 </a>
             </li>
+            <?php } ?>
             <li>
                 <a href="<?php echo base_url('AppController'); ?>">
                     <i class="fa fa-adn"></i> <span>Apps</span>

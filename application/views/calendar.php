@@ -15,7 +15,7 @@
             <aside class="right-side">
                 <section class="content-header">
                     <h1>
-                        Calendar
+                        <i>Calendar</i>
                         <small>Page</small>
                     </h1>
                 </section>

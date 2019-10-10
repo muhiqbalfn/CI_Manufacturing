@@ -15,7 +15,7 @@
             <aside class="right-side">
                 <section class="content-header">
                     <h1>
-                        Setting
+                        <i>Setting</i>
                         <small>Page</small>
                     </h1>
                 </section>
@@ -28,14 +28,12 @@
                             <div class="box box-solid nav-tabs-custom">
                                 <ul class="nav nav-tabs">
                                     <li class="active"><a href="#tab_1" data-toggle="tab"><i class="fa fa-th-large"></i></a></li>
-                                    <?php if ($this->session->userdata('id_user') == "1"){ ?>
                                     <li><a href="#tab_2" data-toggle="tab"><i class="fa fa-th-list"></i></a></li>
                                     <li class="pull-right">
                                         <button class="btn btn-primary" data-toggle="modal" data-target="#mdlSetting">
                                             <i class="fa fa-plus"></i> &nbsp;Create user
                                         </button>
                                     </li>
-                                    <?php } ?>
                                 </ul>
                                 <div class="tab-content col-md-12 box-body"><br>
                                     <div class="tab-pane active" id="tab_1">
@@ -46,15 +44,14 @@
                                             <div class="box" style="box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);">
                                                 <div class="box-body">
                                                     <img style="float: left; margin-right: 10px;" src="<?php echo base_url() ?>assets/img/nuzul.png" height="70px" width="70px">
-                                                    <h5><?php echo $key->username ?></h5>
-                                                    <h6 style="color: #a9a9a9;"><i><i class="fa fa-envelope"></i> &nbsp;<?php echo $key->email ?></i></h6><br>
+                                                    <h5><?php echo $key->nama_penghuni ?></h5>
+                                                    <h6 style="color: #a9a9a9;"><i><i class="fa fa-phone"></i> &nbsp;<?php echo $key->tlp ?></i></h6><br>
                                                 </div>
                                             </div>
                                         </div>
                                         <?php } ?>
                                         <!------------------------------------------------------------------------------------------>
                                     </div>
-                                    <?php if ($this->session->userdata('id_user') == "1"){ ?>
                                     <div class="tab-pane" id="tab_2">
                                         <!------------------------------------------------------------------------------------------>
                                         <div class="table-responsive">
@@ -77,7 +74,6 @@
                                         </div>
                                         <!------------------------------------------------------------------------------------------>
                                     </div>
-                                    <?php } ?>
                                 </div>
                             </div> 
                        </div>

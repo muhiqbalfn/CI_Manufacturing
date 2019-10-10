@@ -1,8 +1,8 @@
 <!-- header logo: style can be found in header.less -->
 <header class="header">
-    <a href="<?php echo base_url('ProductController'); ?>" class="logo">
+    <a href="<?php echo base_url('HomeController'); ?>" class="logo">
         <!-- Add the class icon to your logo image or logo icon to add the margining -->
-        Manufacturing
+       Puncak cengkeh 3A
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top" role="navigation">
@@ -203,18 +203,21 @@
                         </li>
                     </ul>
                 </li>
+                <?php if ($this->session->userdata('status') == "Pengurus"){ ?>
                 <!-- User Account: style can be found in dropdown.less -->
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="glyphicon glyphicon-user"></i>
-                        <span><?php echo $this->session->userdata('username') ?> <i class="caret"></i></span>
+                        <span>
+                            <?php echo $this->session->userdata('nama_penghuni'); ?> <i class="caret"></i>
+                        </span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header bg-light-blue">
                             <img src="<?php echo base_url('assets/img/avatar5.png') ?>" class="img-circle" alt="User Image" />
                             <p>
-                                <?php echo $this->session->userdata('username') ?>
+                                <?php echo $this->session->userdata('nama_penghuni') ?>
                                 <small>Member since Nov. 1997</small>
                             </p>
                         </li>
@@ -241,6 +244,16 @@
                         </li>
                     </ul>
                 </li>
+                <?php }else{ ?>
+                <li class="user user-menu">
+                    <a href="<?php echo base_url('LoginController'); ?>">
+                        <i class="fa fa-sign-in"></i>
+                        <span>
+                            Login pengurus
+                        </span>
+                    </a>
+                </li>
+                <?php } ?>
             </ul>
         </div>
     </nav>

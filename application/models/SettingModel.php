@@ -3,8 +3,8 @@
 	class SettingModel extends CI_Model {
 
 		public function get_data($table){
-			$query = $this->db->get($table);
-			return $query->result();
+			$this->db->where('status','Pengurus');
+			return $this->db->get($table)->result();
 		}
 
 		public function add_data($table,$dat){  

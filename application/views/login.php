@@ -2,8 +2,8 @@
 <html class="lockscreen">
     <head>
         <meta charset="UTF-8">
-        <link rel="shortcut icon" href="<?php echo base_url('assets/img/odoo.png') ?>">
-        <title>Odoo | Manufacturing</title>
+        <link rel="shortcut icon" href="<?php echo base_url('assets/img/nuzul.png') ?>">
+        <title>Simakos | Puncak cengkeh 3A</title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <link href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet" type="text/css" />
         <link href="<?php echo base_url('assets/css/font-awesome.min.css'); ?>" rel="stylesheet" type="text/css" />
@@ -16,10 +16,10 @@
             <?php echo form_open('LoginController/login')?>
                 <div class="body bg-gray">
                     <div class="form-group">
-                        <input type="text" name="email" class="form-control" placeholder="Email"/>
+                        <input type="text" name="user" class="form-control" placeholder="Username"/>
                     </div>
                     <div class="form-group">
-                        <input type="password" name="password" class="form-control" placeholder="Password"/>
+                        <input type="password" name="pass" class="form-control" placeholder="Password"/>
                     </div>          
                     <div class="form-group">
                         <input type="checkbox" name="remember_me"/> Remember me

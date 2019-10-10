@@ -15,7 +15,7 @@
             <aside class="right-side">
                 <section class="content-header">
                     <h1>
-                        Bills of Materials
+                        <i>Daftar penghuni kos</i>
                         <small>Page</small>
                     </h1>
                 </section>
@@ -23,30 +23,54 @@
                 <!-- Main content -->
                 <section class="content">
                     <div class="row">
-                        <div class="col-lg-12">
-                            <!-- Custom Tabs -->
+                       <div class="col-lg-12">
+                           <!-- Custom Tabs -->
                             <div class="box box-solid nav-tabs-custom">
                                 <ul class="nav nav-tabs">
-                                    <li class="active"><a href="#tab_1" data-toggle="tab"><i class="fa fa-th-list"></i></a></li>
-                                    <li><a href="#tab_2" data-toggle="tab"><i class="fa fa-th-large"></i></a></li>
-                                    <li class="pull-right" style="padding-right: 5px;">
-                                        <button class="btn btn-primary" data-toggle="modal" data-target="#mdlBom">
-                                            <i class="fa fa-plus"></i> &nbsp;Create BoM
+                                    <li class="active"><a href="#tab_1" data-toggle="tab"><i class="fa fa-th-large"></i></a></li>
+                                    <li><a href="#tab_2" data-toggle="tab"><i class="fa fa-th-list"></i></a></li>
+                                    <li class="pull-right">
+                                        <button class="btn btn-primary" data-toggle="modal" data-target="#mdlSetting">
+                                            <i class="fa fa-plus"></i> &nbsp;Create user
                                         </button>
                                     </li>
                                 </ul>
                                 <div class="tab-content col-md-12 box-body"><br>
                                     <div class="tab-pane active" id="tab_1">
-                                        <!--------------------------------------------------------------------------------------->
+                                        <!------------------------------------------------------------------------------------------>
+                                        <!-- List user -->
+                                        <?php foreach ($data as $key) {  ?>
+                                        <div class="col-lg-4">
+                                            <div class="box <?php if($key->status=='Pengasuh'){ ?> box-success <?php } ?>" 
+                                                style="box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);">
+                                                <div class="box-body">
+                                                    <img style="float: left; margin-right: 10px;" src="<?php echo base_url() ?>assets/img/nuzul.png" height="70px" width="70px">
+                                                    <h5><?php echo $key->nama_penghuni ?></h5>
+                                                    <h6 style="color: #a9a9a9"><i><i class="fa fa-phone"></i> &nbsp;<?php echo $key->tlp ?></i></h6>
+                                                    <h6 class="<?php echo $key->status ?>"><i><i class="fa fa-user"></i> &nbsp;<?php echo $key->status ?></i></h6>
+                                                    <style type="text/css">
+                                                        .Pengasuh{color: green}
+                                                        .Penghuni{color: #a9a9a9}
+                                                    </style>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <?php } ?>
+                                        <!------------------------------------------------------------------------------------------>
+                                    </div>
+                                    <div class="tab-pane" id="tab_2">
+                                        <!------------------------------------------------------------------------------------------>
                                         <div class="table-responsive">
-                                            <table id="tabelajax" class="table table-bordered table-striped table-hover">
+                                            <table width="100%" id="tabelajax" class="table table-bordered table-striped table-hover">
                                                 <thead>
                                                     <tr>
                                                         <th>No.</th>
-                                                        <th>Product name</th>
-                                                        <th>Quantity</th>
-                                                        <th>Reference</th>
-                                                        <th>BoM Type</th>
+                                                        <th>Foto</th>
+                                                        <th>Username</th>
+                                                        <th>Email</th>
+                                                        <th>Phone</th>
+                                                        <th>Address</th>
+                                                        <th>Password</th>
                                                         <th>Aksi</th>
                                                     </tr>
                                                 </thead>
@@ -54,33 +78,18 @@
                                                 </tbody>
                                             </table>
                                         </div>
-                                        <!--------------------------------------------------------------------------------------->
+                                        <!------------------------------------------------------------------------------------------>
                                     </div>
-                                    <div class="tab-pane" id="tab_2">
-                                        <!--------------------------------------------------------------------------------------->
-                                        <!-- List contact -->
-                                        <?php foreach ($data as $key) {  ?>
-                                        <div class="col-lg-4">
-                                            <div class="box box-primary" style="box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);">
-                                                <div class="box-body">
-                                                    <h4><?php echo $key->product_name ?></h4>
-                                                    <h6 style="color: #333333;"><i>Quantity : <?php echo $key->qty_bom ?> Unit(s)</i></h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <?php } ?>
-                                        <!--------------------------------------------------------------------------------------->
-                                    </div>   
                                 </div>
-                            </div>
-                        </div>
+                            </div> 
+                       </div>
                     </div>
                 </section>
 
             </aside>
         </div>
 
-        <?php $this->load->view('modal/modalBom'); ?>
+        <?php $this->load->view('modal/modalSetting'); ?>
         <?php $this->load->view('sub/footer'); ?>
     </body>
 </html>
@@ -92,7 +101,7 @@
         var no = 0;
         var tableajax = $('#tabelajax').DataTable({
           responsive: true,
-            ajax: '<?php echo base_url("BomController/get_data") ?>',
+            ajax: '<?php echo base_url("SettingController/get_data") ?>',
             columns: [
                 { 
                     data: null,
@@ -101,18 +110,23 @@
                         return no;
                     }
                 },
-                { data: 'product_name' },
-                { data: 'qty_bom' },
-                { data: 'reference' },
-                { data: 'bom_type' },
+                {
+                    data: null,
+                    render: function (data, type, row) {
+                        return '<img src="<?php echo base_url() ?>assets/img/nuzul.png" height="40px" width="40px">';
+                    }
+                },
+                { data: 'username' },
+                { data: 'email' },
+                { data: 'phone' },
+                { data: 'address' },
+                { data: 'password' },
                 {
                   data: null,
                   render: function ( data, type, row ) {
-                    var ret = '<a href="javascript:;" data="'+row.id_bom+'" class="btn_edit"><span class="glyphicon glyphicon-edit" style="color: blue;"> </span></a>';
+                    var ret = '<a href="javascript:;" data="'+row.id_user+'" class="btn_edit"><span class="glyphicon glyphicon-edit" style="color: blue;"> </span></a>';
                         ret+= ' / ';
-                        ret+= '<a href="javascript:;" data="'+row.id_bom+'" class="btn_hapus"><span class="glyphicon glyphicon-trash" style="color: red;"></span></a>';
-                        ret+= ' / ';
-                        ret+= '<a href="<?php echo base_url("BomController/get_detail/") ?>'+row.id_bom+'" class="btn_detail"><span class="glyphicon glyphicon-eye-open" style="color: green;"></span></a>';
+                        ret+= '<a href="javascript:;" data="'+row.id_user+'" class="btn_hapus"><span class="glyphicon glyphicon-trash" style="color: red;"></span></a>';
                     return ret;
                    }
                 }
@@ -123,34 +137,44 @@
         //Add -----------------------------------------------------------------------------------------
         $('#btn_simpan').click(function(e){ 
             e.preventDefault(); 
-            if ($('[name=qty_bom]').val() == ''){
+            if ($('[name=username]').val() == ''){
                 swal({
                     type: 'warning',
                     title: '',
-                    text: 'Quantity tidak boleh kosong !',
+                    text: 'Username tidak boleh kosong !',
                     timer: 2000,
                     showConfirmButton: false
                 });
-            }else if ($('[name=reference]').val() == ''){
+            }else if ($('[name=email]').val() == ''){
                 swal({
                     type: 'warning',
                     title: '',
-                    text: 'Reference tidak boleh kosong !',
+                    text: 'Email tidak boleh kosong !',
+                    timer: 2000,
+                    showConfirmButton: false
+                });
+            }else if ($('[name=password]').val() == ''){
+                swal({
+                    type: 'warning',
+                    title: '',
+                    text: 'Password tidak boleh kosong !',
                     timer: 2000,
                     showConfirmButton: false
                 });
             }else{
-                var data1 = $('[name=id_product]').val();
-                var data2 = $('[name=qty_bom]').val();
-                var data3 = $('[name=reference]').val();
-                var data4 = $('[name=bom_type]').val();
+                var data1 = $('[name=username]').val();
+                var data2 = $('[name=email]').val();
+                var data3 = $('[name=password]').val();
+                var data4 = $('[name=phone]').val();
+                var data5 = $('[name=address]').val();
+                var data6 = $('[name=level]').val();
                 $.ajax({
                     type : "POST",
-                    url  : "<?php echo base_url('BomController/add_data')?>",
+                    url  : "<?php echo base_url('SettingController/add_data')?>",
                     dataType : "JSON",
-                    data : {data1:data1,data2:data2,data3:data3,data4:data4},
+                    data : {data1:data1,data2:data2,data3:data3,data4:data4,data5:data5,data6:data6},
                     success: function(data){
-                        $('#mdlBom').modal('hide');
+                        $('#mdlSetting').modal('hide');
                         swal({
                             type: 'success',
                             title: 'Saved !',
@@ -181,17 +205,19 @@
             var data1 = $(this).attr('data');
             $.ajax({
                 type : "GET",
-                url  : "<?php echo base_url('BomController/get_update_data')?>",
+                url  : "<?php echo base_url('SettingController/get_update_data')?>",
                 dataType : "JSON",
                 data : {data1:data1},
                 success: function(data){
                     $.each(data,function(){
-                        $('#mdlBom').modal('show');
-                        $('[name=id_bom]').val(data.id_bom);
-                        $('[name=id_product]').val(data.id_product);
-                        $('[name=qty_bom]').val(data.qty_bom);
-                        $('[name=reference]').val(data.reference);
-                        $('[name=bom_type]').val(data.bom_type);
+                        $('#mdlSetting').modal('show');
+                        $('[name=id_user]').val(data.id_user);
+                        $('[name=username]').val(data.username);
+                        $('[name=email]').val(data.email);
+                        $('[name=password]').val(data.password);
+                        $('[name=phone]').val(data.phone);
+                        $('[name=address]').val(data.address);
+                        $('[name=level]').val(data.level);
                         $("#btn_simpan").attr("disabled",true).css('background-color','#DCDCDC');
                         $("#btn_update").attr("disabled",false).css('background-color','#1E90FF');
                     });
@@ -204,19 +230,20 @@
         //Update --------------------------------------------------------------------------------------
         $('#btn_update').click(function(e){ 
             e.preventDefault();
-            var data1 = $('[name=id_bom]').val();
-            var data2 = $('[name=id_product]').val();
-            var data3 = $('[name=qty_bom]').val();
-            var data4 = $('[name=reference]').val();
-            var data5 = $('[name=bom_type]').val();
+            var data1 = $('[name=id_user]').val();
+            var data2 = $('[name=username]').val();
+            var data3 = $('[name=email]').val();
+            var data4 = $('[name=password]').val();
+            var data5 = $('[name=phone]').val();
+            var data6 = $('[name=address]').val();
+            var data7 = $('[name=level]').val();
             $.ajax({
                 type : "POST",
-                url  : "<?php echo base_url('BomController/update_data')?>",
+                url  : "<?php echo base_url('SettingController/update_data')?>",
                 dataType : "JSON",
-                data : {data1:data1,data2:data2,data3:data3,data4:data4,data5:data5},
+                data : {data1:data1,data2:data2,data3:data3,data4:data4,data5:data5,data6:data6,data7:data7},
                 success: function(data){
-                    $('#mdlBom').modal('hide');
-                    $('[name=qty_bom]').val('1.00');
+                    $('#mdlSetting').modal('hide');
                     $("#btn_simpan").attr("disabled",false).css('background-color','#1E90FF');
                     $("#btn_update").attr("disabled",true).css('background-color','#DCDCDC');
                     swal({
@@ -259,7 +286,7 @@
             function(){
                 $.ajax({
                     type : "POST",
-                    url  : "<?php echo base_url('BomController/del_data')?>",
+                    url  : "<?php echo base_url('SettingController/del_data')?>",
                     dataType : "JSON",
                     data : {data1:data1},
                     success: function(data){
@@ -288,6 +315,7 @@
             return false;
         });
         //---------------------------------------------------------------------------------------------
+
 
     });
 </script>

@@ -15,7 +15,7 @@
             <aside class="right-side">
                 <section class="content-header">
                     <h1>
-                        Dashboard
+                        <i>Dashboard</i>
                         <small>Page</small>
                     </h1>
                 </section>
@@ -24,125 +24,18 @@
                 <section class="content">
                     <div class="row">
                        <div class="col-lg-12">
-                           <!-- List app -->
-                            <div class="col-lg-4">
-                                <div class="box">
-                                    <div class="box-body">
-                                        <img style="float: left; margin-right: 10px;" src="<?php echo base_url() ?>assets/img/apps/1.png" height="80px" width="80px">
-                                        <h4>Inventory</h4>
-                                        <h5 style="color: #a9a9a9;">Track leads and close opportunities</h5>
-                                        <i><b style="color: #a9a9a9;">Installed</b></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="box">
-                                    <div class="box-body">
-                                        <img style="float: left; margin-right: 10px;" src="<?php echo base_url() ?>assets/img/apps/2.png" height="80px" width="80px">
-                                        <h4>Manufacturing</h4>
-                                        <h5 style="color: #a9a9a9;">Track leads and close opportunities</h5>
-                                        <i><b style="color: #a9a9a9;">Installed</b></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="box">
-                                    <div class="box-body">
-                                        <img style="float: left; margin-right: 10px;" src="<?php echo base_url() ?>assets/img/apps/3.png" height="80px" width="80px">
-                                        <h4>Quality</h4>
-                                        <h5 style="color: #a9a9a9;">Track leads and close opportunities</h5>
-                                        <i><b style="color: #a9a9a9;">Installed</b></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="box">
-                                    <div class="box-body">
-                                        <img style="float: left; margin-right: 10px;" src="<?php echo base_url() ?>assets/img/apps/4.png" height="80px" width="80px">
-                                        <h4>Sales</h4>
-                                        <h5 style="color: #a9a9a9;">Track leads and close opportunities</h5>
-                                        <i><b style="color: #a9a9a9;">Installed</b></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="box">
-                                    <div class="box-body">
-                                        <img style="float: left; margin-right: 10px;" src="<?php echo base_url() ?>assets/img/apps/1.png" height="80px" width="80px">
-                                        <h4>Inventory</h4>
-                                        <h5 style="color: #a9a9a9;">Track leads and close opportunities</h5>
-                                        <button class="btn-success btn-xs">Install</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="box">
-                                    <div class="box-body">
-                                        <img style="float: left; margin-right: 10px;" src="<?php echo base_url() ?>assets/img/apps/2.png" height="80px" width="80px">
-                                        <h4>Manufacturing</h4>
-                                        <h5 style="color: #a9a9a9;">Track leads and close opportunities</h5>
-                                        <button class="btn-success btn-xs">Install</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="box">
-                                    <div class="box-body">
-                                        <img style="float: left; margin-right: 10px;" src="<?php echo base_url() ?>assets/img/apps/3.png" height="80px" width="80px">
-                                        <h4>Quality</h4>
-                                        <h5 style="color: #a9a9a9;">Track leads and close opportunities</h5>
-                                        <button class="btn-success btn-xs">Install</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="box">
-                                    <div class="box-body">
-                                        <img style="float: left; margin-right: 10px;" src="<?php echo base_url() ?>assets/img/apps/4.png" height="80px" width="80px">
-                                        <h4>Sales</h4>
-                                        <h5 style="color: #a9a9a9;">Track leads and close opportunities</h5>
-                                        <button class="btn-success btn-xs">Install</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="box">
-                                    <div class="box-body">
-                                        <img style="float: left; margin-right: 10px;" src="<?php echo base_url() ?>assets/img/apps/1.png" height="80px" width="80px">
-                                        <h4>Inventory</h4>
-                                        <h5 style="color: #a9a9a9;">Track leads and close opportunities</h5>
-                                        <button class="btn-success btn-xs">Install</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="box">
-                                    <div class="box-body">
-                                        <img style="float: left; margin-right: 10px;" src="<?php echo base_url() ?>assets/img/apps/2.png" height="80px" width="80px">
-                                        <h4>Manufacturing</h4>
-                                        <h5 style="color: #a9a9a9;">Track leads and close opportunities</h5>
-                                        <button class="btn-success btn-xs">Install</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="box">
-                                    <div class="box-body">
-                                        <img style="float: left; margin-right: 10px;" src="<?php echo base_url() ?>assets/img/apps/3.png" height="80px" width="80px">
-                                        <h4>Quality</h4>
-                                        <h5 style="color: #a9a9a9;">Track leads and close opportunities</h5>
-                                        <button class="btn-success btn-xs">Install</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="box">
-                                    <div class="box-body">
-                                        <img style="float: left; margin-right: 10px;" src="<?php echo base_url() ?>assets/img/apps/4.png" height="80px" width="80px">
-                                        <h4>Sales</h4>
-                                        <h5 style="color: #a9a9a9;">Track leads and close opportunities</h5>
-                                        <button class="btn-success btn-xs">Install</button>
-                                    </div>
+                            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                           <div class="row">
+                                <!-- accepted payments column -->
+                                <div class="col-xs-6">
+                                    <p class="lead">Payment Methods:</p>
+                                    <img src="<?php echo base_url('assets/img/credit/visa.png'); ?>" alt="Visa"/>
+                                    <img src="<?php echo base_url('assets/img/credit/mastercard.png'); ?>" alt="Mastercard"/>
+                                    <img src="<?php echo base_url('assets/img/credit/american-express.png'); ?>" alt="American Express"/>
+                                    <img src="<?php echo base_url('assets/img/credit/paypal2.png'); ?>" alt="Paypal"/>
+                                    <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
+                                        Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles, weebly ning heekya handango imeem plugg dopplr jibjab, movity jajah plickers sifteo edmodo ifttt zimbra.
+                                    </p>
                                 </div>
                             </div>
                        </div>
@@ -151,8 +44,6 @@
 
             </aside>
         </div>
-
-        
 
         <?php $this->load->view('sub/footer'); ?>
     </body>

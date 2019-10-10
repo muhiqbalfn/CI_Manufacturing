@@ -1,20 +1,20 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class SettingController extends CI_Controller {
+class PenghuniController extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();
-		$this->load->model('SettingModel');
+		$this->load->model('PenghuniModel');
 	}
 
 	public function index()
 	{
-		$data['data'] = $this->SettingModel->get_data('tb_penghuni');
-		$this->load->view('setting',$data);
+		$data['data'] = $this->PenghuniModel->get_data('tb_penghuni');
+		$this->load->view('penghuni',$data);
 	}
 
 	public function get_data(){
-		$data['data'] = $this->SettingModel->get_data('tb_penghuni');
+		$data['data'] = $this->PenghuniModel->get_data('tb_penghuni');
 		echo json_encode($data);
 	}
 
@@ -27,13 +27,13 @@ class SettingController extends CI_Controller {
 			'address'  => $this->input->post('data5'),
 			'level'	   => $this->input->post('data6')
 		);
-		$data = $this->SettingModel->add_data('tb_user',$dat);
+		$data = $this->PenghuniModel->add_data('tb_user',$dat);
 		echo json_encode($data);
     }
 
     public function get_update_data(){
         $id   = $this->input->get('data1');
-        $data = $this->SettingModel->get_update_data($id);
+        $data = $this->PenghuniModel->get_update_data($id);
         echo json_encode($data);
     }
 
@@ -47,13 +47,13 @@ class SettingController extends CI_Controller {
 			'level'	     => $this->input->post('data7')
 		);
 		$id    = array('id_user' => $this->input->post('data1'));
-		$data  = $this->SettingModel->update_data('tb_user',$dat,$id);
+		$data  = $this->PenghuniModel->update_data('tb_user',$dat,$id);
 		echo json_encode($data);
 	}
 
     public function del_data(){
 		$id   = array('id_user' => $this->input->post('data1'));
-		$data = $this->SettingModel->del_data($id,'tb_user');
+		$data = $this->PenghuniModel->del_data($id,'tb_user');
 		echo json_encode($data);
 	}
 

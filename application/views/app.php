@@ -15,7 +15,7 @@
             <aside class="right-side">
                 <section class="content-header">
                     <h1>
-                        Apps
+                        <i>Apps</i>
                         <small>Page</small>
                     </h1>
                 </section>

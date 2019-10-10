@@ -14,24 +14,30 @@ class LoginController extends CI_Controller {
 	
 	public function login(){
 		if(isset($_POST['login'])){
-			$email     = $this->input->post('email',true);
-			$password  = $this->input->post('password',true);
-			$cek   	   = $this->LoginModel->login($email, $password);
-			$hasil     = count($cek);
+			$user   = $this->input->post('user',true);
+			$pass   = $this->input->post('pass',true);
+			$status = 'Pengurus';
+			$cek   	= $this->LoginModel->login($user, $pass, $status);
+			$hasil  = count($cek);
 			if($hasil > 0)
 			{
-				$in   = $this->db->get_where('tb_user', array('email'=>$email, 'password' => $password))->row();
+				$in   = $this->db->get_where('tb_penghuni', array('user'=>$user, 'pass' => $pass, 'status' => $status))->row();
 				$data = array('udhmasuk'  => true,
-							  'id_user'   => $in->id_user,
-							  'username'  => $in->username);
+							  'id_penghuni'   => $in->id_penghuni,
+							  'nama_penghuni' => $in->nama_penghuni,
+							  'status'  	  => $in->status);
 				
 				$this->session->set_userdata($data);
-				redirect(base_url('ProductController'));
+				redirect(base_url('HomeController'));
 			}
 			else
 			{
-				redirect(base_url('LoginController'));
+				echo "Salah 2 !";
 			}
+		}
+		else
+		{
+			echo "Salah 1 !";
 		}
 	}
 

@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class CalendarController extends CI_Controller {
+class IuranController extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();
@@ -8,7 +8,7 @@ class CalendarController extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('calendar');
+		$this->load->view('iuran');
 	}
 
 }
